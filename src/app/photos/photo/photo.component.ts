@@ -7,12 +7,12 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class PhotoComponent implements OnInit {
 
-  title = 'alurapic';
   @Input()
   description = ''
 
   @Input()
   url = ''
+
 
 
   constructor() { }
