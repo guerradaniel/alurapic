@@ -12,8 +12,7 @@ import { PhotoService } from './photos/photo/photo.service';
   ],
   imports: [
     BrowserModule,
-    PhotosModule,
-    HttpClientModule
+    PhotosModule
   ],
   providers: [
   ],
