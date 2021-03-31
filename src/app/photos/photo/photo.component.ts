@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'ap-photo',
@@ -8,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class PhotoComponent implements OnInit {
 
   title = 'alurapic';
-  description = 'Leão'
-  url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Sultan_the_Barbary_Lion.jpg/440px-Sultan_the_Barbary_Lion.jpg'
+  @Input()
+  description = ''
+
+  @Input()
+  url = ''
 
 
   constructor() { }
