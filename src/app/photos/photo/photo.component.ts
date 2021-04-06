@@ -13,8 +13,6 @@ export class PhotoComponent implements OnInit {
   @Input()
   url = ''
 
-
-
   constructor() { }
 
   ngOnInit(): void {
