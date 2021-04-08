@@ -1,5 +1,5 @@
 <div class="card border-light text-center">
-  <p class="card-header" style="font-size: 13px;">{{title}}</p>
+  <p class="card-header" *ngIf="title" style="font-size: 13px;">{{title}}</p>
   <div class="card-block text-justify">
     <ng-content></ng-content>
   </div>
