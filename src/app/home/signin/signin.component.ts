@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/core/auth.service';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/core/auth/auth.service';
+import { PlatformDetectorService } from 'src/app/core/platform-detector/platform-detector.service';
 
 
 @Component({
@@ -9,10 +11,13 @@ import { AuthService } from 'src/app/core/auth.service';
 export class SignInComponent implements OnInit {
 
 	loginForm: FormGroup
+	@ViewChild('userNameInput') userNameInput: ElementRef<HTMLInputElement>
 
 	constructor(
 		private formBuilder: FormBuilder,
-		private authService: AuthService
+		private authService: AuthService,
+		private router: Router,
+		private platformDetectorService: PlatformDetectorService
 	) { }
 
 	ngOnInit(): void {
@@ -28,10 +33,12 @@ export class SignInComponent implements OnInit {
 
 		this.authService
 			.authenticate(userName, password).subscribe(() =>
-				console.log('autenticado'),
+				this.router.navigate(['user', userName]),
 				err => {
 					console.log(err)
 					this.loginForm.reset()
+					this.platformDetectorService.isPlatformBrowser() &&
+						this.userNameInput.nativeElement.focus()
 					alert('Login e/ou senha incorreto(s).')
 				}
 			)

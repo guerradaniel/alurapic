@@ -3,7 +3,7 @@
 
   <form [formGroup]="loginForm" class="form mt-4 mb-3" (submit)="login()">
     <div class="form-group">
-      <input formControlName="userName" class="form-control" placeholder="Usuário" autofocus>
+      <input #userNameInput formControlName="userName" class="form-control" placeholder="Usuário" autofocus>
       <ap-vmessage *ngIf="loginForm.get('userName').errors?.required" text="O campo de usuário é obrigatório">
       </ap-vmessage>
     </div>
