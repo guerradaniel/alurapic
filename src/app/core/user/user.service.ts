@@ -11,6 +11,7 @@ import { User } from './user';
 export class UserService {
 
   private userSubject = new BehaviorSubject<User>(null)
+  private userName: string
 
   constructor(
     private tokenService: TokenService
@@ -31,11 +32,20 @@ export class UserService {
   private decodeAndNotify() {
     const token = this.tokenService.getToken() // setei o token
     const user = jtw_decode(token) as User; // peguei token salvo, pego o payload
+    this.userName = user.name
     this.userSubject.next(user) // transformo para tipo User
   }
 
   logout() {
     this.tokenService.removeToken()
     this.userSubject.next(null)
+  }
+
+  isLogged() {
+    return this.tokenService.hasToken()
+  }
+
+  getUserName() {
+    return this.userName
   }
 }
