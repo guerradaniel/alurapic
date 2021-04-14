@@ -33,4 +33,9 @@ export class UserService {
     const user = jtw_decode(token) as User; // peguei token salvo, pego o payload
     this.userSubject.next(user) // transformo para tipo User
   }
+
+  logout() {
+    this.tokenService.removeToken()
+    this.userSubject.next(null)
+  }
 }
