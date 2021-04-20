@@ -1,0 +1,49 @@
+<div class="container">
+  <h4 class="text-center pt-3"> Registre-se e abrace um novo mundo!</h4>
+
+  <form [formGroup]="signupForm" class="form mt-4">
+    <div class="form-group">
+      <input formControlName="email" placeholder="e-mail" class="form-control" autofocus>
+      <ap-vmessage *ngIf="signupForm.get('email').errors?.required" text="O campo de e-mail é obrigatório">
+      </ap-vmessage>
+      <ap-vmessage *ngIf="signupForm.get('email').errors?.email" text="E-mail inválido">
+      </ap-vmessage>
+    </div>
+
+    <div class="form-group">
+      <input formControlName="fullName" placeholder="nome completo" class="form-control">
+      <ap-vmessage *ngIf="signupForm.get('fullName').errors?.required" text="O campo de nome completo é obrigatório">
+      </ap-vmessage>
+      <ap-vmessage *ngIf="signupForm.get('fullName').errors?.minlength" text="O tamanho mínimo é de 2 dígitos">
+      </ap-vmessage>
+      <ap-vmessage *ngIf="signupForm.get('fullName').errors?.maxlength" text="O tamanho mínimo é de 40 dígitos">
+      </ap-vmessage>
+    </div>
+
+    <div class="form-group">
+      <input formControlName="userName" placeholder="usuário" class="form-control">
+      <ap-vmessage *ngIf="signupForm.get('userName').errors?.required" text="O campo de usuário é obrigatório">
+      </ap-vmessage>
+      <ap-vmessage *ngIf="signupForm.get('userName').errors?.minlength" text="O tamanho mínimo é de 2 dígitos">
+      </ap-vmessage>
+      <ap-vmessage *ngIf="signupForm.get('userName').errors?.maxlength" text="O tamanho mínimo é de 40 dígitos">
+      </ap-vmessage>
+      <ap-vmessage *ngIf="signupForm.get('userName').errors?.pattern" text="O valoar do campor deve ser minúsculo">
+      </ap-vmessage>
+    </div>
+
+    <div class="form-group">
+      <input formControlName="password" type="password" placeholder="senha" class="form-control">
+      <ap-vmessage *ngIf="signupForm.get('password').errors?.required" text="O campo de senha é obrigatório">
+      </ap-vmessage>
+      <ap-vmessage *ngIf="signupForm.get('password').errors?.minlength" text="O tamanho mínimo é de 8 dígitos">
+      </ap-vmessage>
+      <ap-vmessage *ngIf="signupForm.get('password').errors?.maxlength" text="O tamanho mínimo é de 18 dígitos">
+      </ap-vmessage>
+    </div>
+
+    <button class="btn btn-primary btn-block">Registrar</button>
+
+    <p class="text-center pt-2">Já é usuário?<a [routerLink]="['']"> Entrar</a></p>
+  </form>
+</div>
