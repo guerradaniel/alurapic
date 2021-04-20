@@ -28,7 +28,7 @@
       </ap-vmessage>
       <ap-vmessage *ngIf="signupForm.get('userName').errors?.maxlength" text="O tamanho mínimo é de 40 dígitos">
       </ap-vmessage>
-      <ap-vmessage *ngIf="signupForm.get('userName').errors?.pattern" text="O valoar do campor deve ser minúsculo">
+      <ap-vmessage *ngIf="signupForm.get('userName').errors?.lowerCase" text="O valoar do campor deve ser minúsculo">
       </ap-vmessage>
     </div>
 
