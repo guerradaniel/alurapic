@@ -16,5 +16,5 @@
     <button [disabled]="loginForm.invalid" class="btn btn-primary btn-block">Entrar</button>
   </form>
 
-  <p class="text-center">Não é usuário? <a href="#">Registre-se agora!</a></p>
+  <p class="text-center">Não é usuário? <a [routerLink]="['signup']">Registre-se agora!</a></p>
 </div>
