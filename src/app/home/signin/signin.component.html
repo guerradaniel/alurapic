@@ -1,5 +1,5 @@
 <div class="container">
-  <h4 class="text-center mt-5">Login</h4>
+  <h4 class="text-center mt-3">Login</h4>
 
   <form [formGroup]="loginForm" class="form mt-4 mb-3" (submit)="login()">
     <div class="form-group">
@@ -14,6 +14,7 @@
     </div>
 
     <button [disabled]="loginForm.invalid" class="btn btn-primary btn-block">Entrar</button>
+
   </form>
 
   <p class="text-center">Não é usuário? <a [routerLink]="['signup']">Registre-se agora!</a></p>
